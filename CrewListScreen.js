@@ -379,7 +379,7 @@ class CrewListScreen extends Component {
   }
 
   _onLayout = e => {
-    // const layout = e.nativeEvent.layout;
+    const layout = e.nativeEvent.layout;
     console.log('terryterry _onLayout');
     console.log(layout);
   };
@@ -556,7 +556,7 @@ class CrewListScreen extends Component {
         quality: 0.8,
         snapshotContentContainer: true,
       });
-
+       
       // handle screen capture
       const crewListRef2 = this._secondCrewListRef2;
       var uri3 = '';
