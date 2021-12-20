@@ -460,10 +460,10 @@ class CrewListScreen extends Component {
   _onContentSizeChange2 = (width, height) => {
     console.log(`_onContentSizeChange2 width: ${width} height:${height}`);
 
-     //his.setState({
+     his.setState({
        //width2: width,
       // height2: height,
-    // });
+     });
 
     this.setState(
       prev => {
