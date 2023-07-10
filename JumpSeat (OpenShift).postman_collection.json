@@ -1,0 +1,1557 @@
+{
+	"info": {
+		"_postman_id": "417786cf-0668-4a29-aa11-256ee9f0aa1a",
+		"name": "JumpSeat (OpenShift)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14820199",
+		"_collection_link": "https://dsf1231.postman.co/workspace/Jump-Seat~4116c898-f234-4f20-a0d3-95320fd24203/collection/14820199-417786cf-0668-4a29-aa11-256ee9f0aa1a?action=share&creator=14820199&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "[js-ground-api] getFlightOrigDestDaterange",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-applicationName",
+						"value": "JumpSeat"
+					},
+					{
+						"key": "X-correlationId",
+						"value": "JSMS-FFN10912131dRRN0123456-aCSFDWSDJEFUEYFIFEFEY"
+					},
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=IMTASY,"
+					}
+				],
+				"url": {
+					"raw": "{{js-ground-api}}/jsms/V2/flights/orig-dest-daterange?origin=SYD&destination=HKG&startDate=2019-02-27&endDate=2019-02-27",
+					"host": [
+						"{{js-ground-api}}"
+					],
+					"path": [
+						"jsms",
+						"V2",
+						"flights",
+						"orig-dest-daterange"
+					],
+					"query": [
+						{
+							"key": "origin",
+							"value": "SYD"
+						},
+						{
+							"key": "destination",
+							"value": "HKG"
+						},
+						{
+							"key": "startDate",
+							"value": "2019-02-27"
+						},
+						{
+							"key": "endDate",
+							"value": "2019-02-27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] getFlightDetail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=FINGS,"
+					}
+				],
+				"url": {
+					"raw": "{{js-ground-api}}/jsms/V2/flights/detail?carrierCode=CX&flightNum=619&scheduledFlightDate=2019-02-28&origin=HKG&destination=BKK&reqGalacxyId=FINGS",
+					"host": [
+						"{{js-ground-api}}"
+					],
+					"path": [
+						"jsms",
+						"V2",
+						"flights",
+						"detail"
+					],
+					"query": [
+						{
+							"key": "carrierCode",
+							"value": "CX"
+						},
+						{
+							"key": "flightNum",
+							"value": "619"
+						},
+						{
+							"key": "scheduledFlightDate",
+							"value": "2019-02-28",
+							"description": "6"
+						},
+						{
+							"key": "origin",
+							"value": "HKG"
+						},
+						{
+							"key": "destination",
+							"value": "BKK"
+						},
+						{
+							"key": "reqGalacxyId",
+							"value": "FINGS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] getFlightByCaptain",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "userdn",
+						"value": "CN=CRWAMD,"
+					},
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					}
+				],
+				"url": {
+					"raw": "{{js-ground-api}}/jsms/V2/flights/captain?galacxyId=CRWAMD",
+					"host": [
+						"{{js-ground-api}}"
+					],
+					"path": [
+						"jsms",
+						"V2",
+						"flights",
+						"captain"
+					],
+					"query": [
+						{
+							"key": "galacxyId",
+							"value": "CRWAMD"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] createJSRequests",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-applicationName",
+						"value": "JumpSeat"
+					},
+					{
+						"key": "X-correlationId",
+						"value": "JSMS-FFN10912131dRRN0123456-aCSFDWSDJEFUEYFIFEFEY"
+					},
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=IMTQKL,"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsRequests\": [\n        {\n        \"scheduledFlightDate\": \"2017-09-12\",\n        \"flightDepartureTime\": \"2017-09-12 16:15:00\",\n        \"flightArrivalTime\": \"2017-09-12 18:15:00\",\n        \"flightDepartureTimeUTC\": \"2017-09-12 08:15:00\",\n        \"flightArrivalTimeUTC\": \"2017-09-12 10:15:00\",\n          \"operationCarrier\": \"CX\",\n          \"flightNumber\": \"400\",\n            \"origin\": \"HKG\",\n            \"destination\": \"TPE\",\n            \"preferredFlight\": false,\n            \"relatives\": [\n                {\n                  \"name\": \"FOXB/TABF UBXPFFF\",\n              \"relationship\": \"SELF\",\n              \"dob\": \"1962-02-05\",\n                    \"isEngSpeaker\": true\n                }\n            ]\n        }\n    ],\n    \"reqGalacxyId\": \"CRWBDLs\",\n    \"ern\": \"124127F\"\n}"
+				},
+				"url": "{{js-ground-api}}/jsms/V2/jsrequests/"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] updatePriority",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-applicationName",
+						"value": "JumpSeat"
+					},
+					{
+						"key": "X-correlationId",
+						"value": "JSMS-FFN10912131dRRN0123456-aCSFDWSDJEFUEYFIFEFEY"
+					},
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=CRWXYES,"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"approverGalacxyId\": \"CRWXYES\",\n  \"origin\": \"HKG\",\n  \"destination\": \"TPE\",\n  \"carrierCode\": \"CX\",\n  \"flightNum\": \"450\",\n  \"scheduledFlightDate\": \"2017-08-14\",\n  \"hasReserved\": false,\n  \"jsRequests\": [],\n  \"declinedRequests\": [\n    \"5989855422aaac000f296825\"\n    ]\n}"
+				},
+				"url": "{{js-ground-api}}/jsms/V2/jsrequests/update-priorities"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] getJSRequestsByGalaCXyID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=CEDIKL,"
+					}
+				],
+				"url": {
+					"raw": "{{js-ground-api}}/jsms/V2/jsrequests/?reqGalacxyId=CEDIKL",
+					"host": [
+						"{{js-ground-api}}"
+					],
+					"path": [
+						"jsms",
+						"V2",
+						"jsrequests",
+						""
+					],
+					"query": [
+						{
+							"key": "reqGalacxyId",
+							"value": "CEDIKL"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] getJSRequestsForCaptainFlight",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=IMTASY,"
+					}
+				],
+				"url": {
+					"raw": "{{js-ground-api}}/jsms/V2/jsrequests/captain-flight?carrierCode=CX&flightNum=619&scheduledFlightDate=2019-02-28&origin=HKG&destination=BKK",
+					"host": [
+						"{{js-ground-api}}"
+					],
+					"path": [
+						"jsms",
+						"V2",
+						"jsrequests",
+						"captain-flight"
+					],
+					"query": [
+						{
+							"key": "carrierCode",
+							"value": "CX"
+						},
+						{
+							"key": "flightNum",
+							"value": "619"
+						},
+						{
+							"key": "scheduledFlightDate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "origin",
+							"value": "HKG"
+						},
+						{
+							"key": "destination",
+							"value": "BKK"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] getJSRequestsForRequesterFlight",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=CRWWEB,"
+					}
+				],
+				"url": {
+					"raw": "{{js-ground-api}}/jsms/V2/jsrequests/requester-flight?carrierCode=CX&flightNum=619&scheduledFlightDate=2019-02-28&origin=HKG&destination=BKK&galacxyId=CRWWEB",
+					"host": [
+						"{{js-ground-api}}"
+					],
+					"path": [
+						"jsms",
+						"V2",
+						"jsrequests",
+						"requester-flight"
+					],
+					"query": [
+						{
+							"key": "carrierCode",
+							"value": "CX"
+						},
+						{
+							"key": "flightNum",
+							"value": "619"
+						},
+						{
+							"key": "scheduledFlightDate",
+							"value": "2019-02-28"
+						},
+						{
+							"key": "origin",
+							"value": "HKG"
+						},
+						{
+							"key": "destination",
+							"value": "BKK"
+						},
+						{
+							"key": "galacxyId",
+							"value": "CRWWEB"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] getStaffSafetyQualification",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{requesterDpToken}}"
+					},
+					{
+						"key": "X-applicationName",
+						"value": "JSMS"
+					},
+					{
+						"key": "X-correlationId",
+						"value": "JSMS-MOB0912131dRRN0123456-TestingFromTak"
+					},
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=CCASIRS,"
+					}
+				],
+				"url": {
+					"raw": "{{js-ground-api}}/jsms/V2/staff/safety-qualification?galacxyId=CRWXQMG",
+					"host": [
+						"{{js-ground-api}}"
+					],
+					"path": [
+						"jsms",
+						"V2",
+						"staff",
+						"safety-qualification"
+					],
+					"query": [
+						{
+							"key": "galacxyId",
+							"value": "CRWXQMG"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] getStaffERN",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=CASDTY,"
+					}
+				],
+				"url": "{{js-ground-api}}/jsms/V2/staff/ern"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] getStaffRelatives",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=IMTJKS,"
+					}
+				],
+				"url": {
+					"raw": "{{js-ground-api}}/jsms/V2/staff/relatives?galacxyId=IMTJKS&ern=120491C",
+					"host": [
+						"{{js-ground-api}}"
+					],
+					"path": [
+						"jsms",
+						"V2",
+						"staff",
+						"relatives"
+					],
+					"query": [
+						{
+							"key": "galacxyId",
+							"value": "IMTJKS"
+						},
+						{
+							"key": "ern",
+							"value": "120491C"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] updateStafGalacxyId",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=CAFVKY,"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{js-ground-api}}/jsms/V2/staff/update-galacxyid?galacxyId=CAFVKY&ern=124604A",
+					"host": [
+						"{{js-ground-api}}"
+					],
+					"path": [
+						"jsms",
+						"V2",
+						"staff",
+						"update-galacxyid"
+					],
+					"query": [
+						{
+							"key": "galacxyId",
+							"value": "CAFVKY"
+						},
+						{
+							"key": "ern",
+							"value": "124604A"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] withdrawJSRequests",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=CRWTNL,"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ids\": [\n        \"590fd623acc6a31050f8551b\"\n    ]\n}"
+				},
+				"url": "{{js-ground-api}}/jsms/V2/jsrequests/withdraw"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] declineJSRequests",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=CRWTNL,"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"approverGalacxyId\": \"FOPGNM\",\n    \"id\": \"589edd563f195d0827a7c945\",\n    \"origin\": \"HKG\",\n    \"destination\": \"SYD\",\n    \"carrierCode\": \"CX\",\n    \"flightNum\": \"101\",\n    \"scheduledFlightDate\": \"2017-02-28\"\n}"
+				},
+				"url": "{{js-ground-api}}/jsms/v1/jsrequests/decline"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] updateCaptainProfile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=CRWXAWR,"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"galacxyId\": \"CRWXAWR\",\n  \"autoApprove\": false,\n  \"autoReserve\": false\n}"
+				},
+				"url": "{{js-ground-api}}/jsms/V2/captainprofile/update"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] getCaptainProfile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=CRWMMW,"
+					}
+				],
+				"url": {
+					"raw": "{{js-ground-api}}/jsms/V2/captainprofile/?galacxyId=CRWMMW",
+					"host": [
+						"{{js-ground-api}}"
+					],
+					"path": [
+						"jsms",
+						"V2",
+						"captainprofile",
+						""
+					],
+					"query": [
+						{
+							"key": "galacxyId",
+							"value": "CRWMMW"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] /odpairs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=imtjks,"
+					}
+				],
+				"url": "{{js-ground-api}}/jsms/v2/odpairs"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] /airports",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=imtjks"
+					}
+				],
+				"url": "{{js-ground-api}}/jsms/v2/airports"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] odpairs/notblockinjs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": " 1.1.6",
+						"type": "text"
+					}
+				],
+				"url": "{{js-ground-api}}/jsms/v2/odpairs/notblockinjs",
+				"description": "Sector Restricted OD Pair"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] flights/updateEtd",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "backend-version",
+						"type": "text",
+						"value": " 1.1.6"
+					}
+				],
+				"url": {
+					"raw": "{{js-ground-api}}/jsms/V2/flights/updateEtd?ccsFlightKey=CX76720200709HKGSGN&estimateFlightDepartureTime=2020-07-09T18:20:00&estimateFlightDepartureTimeUTC=2020-07-09T10:20:00Z",
+					"host": [
+						"{{js-ground-api}}"
+					],
+					"path": [
+						"jsms",
+						"V2",
+						"flights",
+						"updateEtd"
+					],
+					"query": [
+						{
+							"key": "ccsFlightKey",
+							"value": "CX76720200709HKGSGN"
+						},
+						{
+							"key": "estimateFlightDepartureTime",
+							"value": "2020-07-09T18:20:00"
+						},
+						{
+							"key": "estimateFlightDepartureTimeUTC",
+							"value": "2020-07-09T10:20:00Z"
+						}
+					]
+				},
+				"description": "flight change ETD update"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] blockseat",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=CRWTNL,"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"galacxyId\": \"CRWLHY\",\n    \"scheduledFlightDate\": \"2017-05-28\",\n    \"operationCarrier\": \"CX\",\n    \"flightNumber\": \"139\",\n    \"origin\": \"HKG\",\n    \"destination\": \"SYD\",\n    \"blockFDK\": false,\n    \"blockFCR\": false\n}"
+				},
+				"url": "{{js-ground-api}}/jsms/V2/blockseat/"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] getNotification",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=crwtnl,"
+					}
+				],
+				"url": "{{js-ground-api}}/jsms/V2/notification/"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] registerDevice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}"
+					},
+					{
+						"key": "userdn",
+						"value": "CN=crwtnl,"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"galacxyId\": \"CRWTNL\",\n  \"app\": \"REQUESTER\",\n  \"token\": \"dB_0cu0kCOE:APA91bFnS0ZZuVB7tpA5WOzTxe-viJ8gZvr_zq18prlsvqWomFE6XjZ5yw1HC1sAv8u7eRr4Ztki16GnGrs-chezS4R4qcOriZKgvsAT5Uz65xHIEN5F-TE2H7uyFcmQEgOyvDLpD-H7\"\n}"
+				},
+				"url": "{{js-ground-api}}/jsms/V2/notification/register-device"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-api] GetConfig",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "backend-version",
+						"value": "{{backend-version}}",
+						"type": "text",
+						"description": "backend version"
+					},
+					{
+						"key": "X-correlationId",
+						"value": "JumpSeatRS-20181126152031968-RDSjtrFKRLceMYpQrYmJeFvj",
+						"type": "text",
+						"description": "correlation Id (hard ocde)",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer AAEKSnVtcFNlYXRSU7y91oVbJGT%5FVuL7JycGeyd1O30TX2zsXCiKZ6zK19k6OGjs5vzdMnO7ufn4Sk08xyicaWH1N9jKjQMR0zrOKZw",
+						"type": "text",
+						"description": "bearer + access token",
+						"disabled": true
+					},
+					{
+						"key": "X-applicationName",
+						"value": " JumpSeatRS",
+						"type": "text",
+						"description": "current app name",
+						"disabled": true
+					}
+				],
+				"url": "{{js-ground-api}}/jsms/v2/config",
+				"description": "# Usage description:\r\nGet config of roster\r\n\r\n\r\n# Response:\r\n|param|type|desc|sample|\r\n|:--|:--|:--|:--|\r\n|rosterAcceptanceStartDatetime|string|roster acceptance start datetime|2018-11-21 04:00:00|"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] GET/soap/flight-commander - displayFlightCommander",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{js-ground-fabricx}}/soap/flight-commander?carrierCode=CX&flightNum=520&scheduledFlightDate=2022-10-22&orig=HKG&dest=NRT",
+					"host": [
+						"{{js-ground-fabricx}}"
+					],
+					"path": [
+						"soap",
+						"flight-commander"
+					],
+					"query": [
+						{
+							"key": "carrierCode",
+							"value": "CX"
+						},
+						{
+							"key": "flightNum",
+							"value": "520"
+						},
+						{
+							"key": "scheduledFlightDate",
+							"value": "2022-10-22"
+						},
+						{
+							"key": "orig",
+							"value": "HKG"
+						},
+						{
+							"key": "dest",
+							"value": "NRT"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] POST/soap/flight-comments - createFlightComment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"flightDetail\": {\n        \"operationCarrier\": \"CX\",\n        \"flightNumber\": \"520\",\n        \"flightDepartureTime\": \"2022-10-22 18:30:00\",\n        \"origin\": \"HKG\",\n        \"destination\": \"NRT\",\n        \"scheduledFlightDate\": \"2022-10-22T18:30:00.000Z\"\n    },\n    \"flightComments\": \"testing yo?\"\n}"
+				},
+				"url": "{{js-ground-fabricx}}/soap/flight-comments"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] soap/flights - searchFlightByCaptain",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{js-ground-fabricx}}/soap/flights/?startDate=2022-10-20&endDate=2022-10-30&galacxyId=CRWJCY",
+					"host": [
+						"{{js-ground-fabricx}}"
+					],
+					"path": [
+						"soap",
+						"flights",
+						""
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2022-10-20"
+						},
+						{
+							"key": "endDate",
+							"value": "2022-10-30"
+						},
+						{
+							"key": "galacxyId",
+							"value": "CRWJCY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] soap/flights- searchFlightByOrigDestDateRange",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{js-ground-fabricx}}/soap/flights/?orig=HKG&dest=TPE&startDate=2019-02-27&endDate=2019-02-27",
+					"host": [
+						"{{js-ground-fabricx}}"
+					],
+					"path": [
+						"soap",
+						"flights",
+						""
+					],
+					"query": [
+						{
+							"key": "orig",
+							"value": "HKG"
+						},
+						{
+							"key": "dest",
+							"value": "TPE"
+						},
+						{
+							"key": "startDate",
+							"value": "2019-02-27"
+						},
+						{
+							"key": "endDate",
+							"value": "2019-02-27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] soap/flights- searchFlightByFlightNum",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{js-ground-fabricx}}/soap/flights/?orig=SYD&dest=HKG&carrierCode=CX&flightNum=162&scheduledFlightDate=2019-02-24",
+					"host": [
+						"{{js-ground-fabricx}}"
+					],
+					"path": [
+						"soap",
+						"flights",
+						""
+					],
+					"query": [
+						{
+							"key": "orig",
+							"value": "SYD"
+						},
+						{
+							"key": "dest",
+							"value": "HKG"
+						},
+						{
+							"key": "carrierCode",
+							"value": "CX"
+						},
+						{
+							"key": "flightNum",
+							"value": "162"
+						},
+						{
+							"key": "scheduledFlightDate",
+							"value": "2019-02-24"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] soap/booking/passengers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operationCarrier\": \"CX\",\n    \"flightNumber\": \"529\",\n    \"origin\": \"HKG\",\n    \"scheduledFlightDate\": \"2022-10-22\"\n}"
+				},
+				"url": "{{js-ground-fabricx}}/soap/booking/passengers"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] soap/checkin/passengers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{js-ground-fabricx}}/soap/checkin/passengers?scheduledFlightDate=2022-10-22&operationCarrier=CX&flightNumber=520&origin=HKG&destination=NRT",
+					"host": [
+						"{{js-ground-fabricx}}"
+					],
+					"path": [
+						"soap",
+						"checkin",
+						"passengers"
+					],
+					"query": [
+						{
+							"key": "scheduledFlightDate",
+							"value": "2022-10-22"
+						},
+						{
+							"key": "operationCarrier",
+							"value": "CX"
+						},
+						{
+							"key": "flightNumber",
+							"value": "520"
+						},
+						{
+							"key": "origin",
+							"value": "HKG"
+						},
+						{
+							"key": "destination",
+							"value": "NRT"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] soap/safety-qualification",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"origin\": \"HKG\",\n  \"flightNumber\": \"520\",\n  \"operationCarrier\": \"CX\",\n  \"scheduledFlightDate\": \"2022-10-22\"\n}"
+				},
+				"url": {
+					"raw": "{{js-ground-fabricx}}/soap/safety-qualification?galacxyId=CRWJCY",
+					"host": [
+						"{{js-ground-fabricx}}"
+					],
+					"path": [
+						"soap",
+						"safety-qualification"
+					],
+					"query": [
+						{
+							"key": "galacxyId",
+							"value": "CRWJCY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] soap/commit-seat",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operationCarrier\": \"CX\",\n    \"flightNumber\": \"520\",\n    \"departureDate\": \"20221022\",\n    \"origin\": \"HKG\",\n    \"destination\": \"NRT\",\n    \"seatNumber\": \"FDK2\",\n    \"ticketNumber\": jsRequest.ticketNumber,\n    \"didQualifier\": jsRequest.didQualifier,\n    \"surname\": jsRequest.surname,\n    \"givenName\": jsRequest.givenName,\n    \"gender\": jsRequest.gender,\n    \"passengerType\": jsRequest.passengerType,\n    \"title\": jsRequest.title\n}"
+				},
+				"url": "{{js-ground-fabricx}}/soap/commit-seat"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] LDAP - login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "serviceName",
+						"value": "ground-staff-auth",
+						"type": "text"
+					},
+					{
+						"key": "TraceId",
+						"value": "1234",
+						"type": "text"
+					},
+					{
+						"key": "SpanId",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"galacxyId\": \"CPPELET\",\n    \"password\": \"Ab!22335514\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{js-ground-fabricx}}/ground-staff/auth"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] ldap - getExitDate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{js-ground-fabricx}}/staff/exitdate/?galacxyId=CCAEWYF",
+					"host": [
+						"{{js-ground-fabricx}}"
+					],
+					"path": [
+						"staff",
+						"exitdate",
+						""
+					],
+					"query": [
+						{
+							"key": "galacxyId",
+							"value": "CCAEWYF"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] ldap - getMemberOf",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{js-ground-fabricx}}/staff/memberof/?galacxyId=CPPELET",
+					"host": [
+						"{{js-ground-fabricx}}"
+					],
+					"path": [
+						"staff",
+						"memberof",
+						""
+					],
+					"query": [
+						{
+							"key": "galacxyId",
+							"value": "CPPELET"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] ldap - getErn",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{js-ground-fabricx}}/staff/ern/?galacxyId=CRWXQMG",
+					"host": [
+						"{{js-ground-fabricx}}"
+					],
+					"path": [
+						"staff",
+						"ern",
+						""
+					],
+					"query": [
+						{
+							"key": "galacxyId",
+							"value": "CRWXQMG"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-ground-fabricx] ldap - getStaffprofile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{js-ground-fabricx}}/staff/staffprofile/?galacxyId=CRWJCY",
+					"host": [
+						"{{js-ground-fabricx}}"
+					],
+					"path": [
+						"staff",
+						"staffprofile",
+						""
+					],
+					"query": [
+						{
+							"key": "galacxyId",
+							"value": "CRWJCY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-rule-engine] getProposedSeat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{js-rule-engine}}/jsrequests/proposed-seats?orig=HKG&dest=TPE&carrierCode=CX&flightNum=464&scheduledFlightDate=2017-06-30",
+					"host": [
+						"{{js-rule-engine}}"
+					],
+					"path": [
+						"jsrequests",
+						"proposed-seats"
+					],
+					"query": [
+						{
+							"key": "orig",
+							"value": "HKG"
+						},
+						{
+							"key": "dest",
+							"value": "TPE"
+						},
+						{
+							"key": "carrierCode",
+							"value": "CX"
+						},
+						{
+							"key": "flightNum",
+							"value": "464"
+						},
+						{
+							"key": "scheduledFlightDate",
+							"value": "2017-06-30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-rule-engine] eligibilityJsrequest",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_id\": \"594b72efdd78b35841ef5661\",\n    \"__v\": 0,\n    \"scheduledFlightDate\": \"2017-06-22T00:00:00.000Z\",\n    \"flightDepartureTime\": \"2017-06-22T10:35:00.000Z\",\n    \"flightArrivalTime\": \"2017-06-22T12:30:00.000Z\",\n    \"flightArrivalTimeUTC\": \"2017-06-22T12:30:00.000Z\",\n    \"flightDepartureTimeUTC\": \"2017-06-22T10:35:00.000Z\",\n    \"operationCarrier\": \"CX\",\n    \"flightNumber\": \"402\",\n    \"origin\": \"HKG\",\n    \"destination\": \"TPE\",\n    \"reqGalacxyId\": \"CRWTNL\",\n    \"ern\": \"650821V\",\n    \"paxName\": \"ABCA DEFA GHIAA\",\n    \"paxDOB\": \"1990-01-02T00:00:00.000Z\",\n    \"relationWithReq\": \"SELF\",\n    \"preferredFlight\": false,\n    \"created\": \"2017-06-22T07:34:06.846Z\",\n    \"approved\": false,\n    \"approverGalacxyId\": null,\n    \"updatePriorityDT\": null,\n    \"notified\": false,\n    \"notifiedDT\": null,\n    \"withdrawn\": false,\n    \"withdrawnDT\": null,\n    \"rejected\": false,\n    \"rejectedDT\": null,\n    \"isSafetyQualified\": true,\n    \"modifiedByAdmin\": false,\n    \"isOptOutCabinSeat\": false,\n    \"priority\": -1,\n    \"isReserved\": false,\n    \"hasTicket\": false,\n    \"d2TicketCheck\": false,\n    \"d24TicketCheck\": false,\n    \"d72TicketCheck\": false,\n    \"eligible\": true,\n    \"precheck\": false,\n    \"rejectedReason\": null\n}"
+				},
+				"url": "{{js-rule-engine}}/rule-engine/eligibility/jsrequest"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-rule-engine] notification",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"galacxyId\": \"crwtnl\",\n  \"app\": \"REQUESTER\",\n  \"message\": {\n    \"notification\": {\n      \"body\":\"Yellow\",\n      \"title\": \"kaka\"\n    },\n    \"priority\":5\n  }\n}"
+				},
+				"url": "{{js-rule-engine}}/notification"
+			},
+			"response": []
+		},
+		{
+			"name": "[js-rule-engine] relative/staffRelatives",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{js-rule-engine}}/relative/staffRelatives?requesterGalacxyId=FOPMWH&ern=650494R",
+					"host": [
+						"{{js-rule-engine}}"
+					],
+					"path": [
+						"relative",
+						"staffRelatives"
+					],
+					"query": [
+						{
+							"key": "requesterGalacxyId",
+							"value": "FOPMWH"
+						},
+						{
+							"key": "ern",
+							"value": "650494R"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-admin] commitJS - getSeatAllocation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{js-admin}}/seat-allocation?origin=HKG&operationCarrier=CX&flightNumber=227&scheduledFlightDate=20Jul2018",
+					"host": [
+						"{{js-admin}}"
+					],
+					"path": [
+						"seat-allocation"
+					],
+					"query": [
+						{
+							"key": "origin",
+							"value": "HKG"
+						},
+						{
+							"key": "operationCarrier",
+							"value": "CX"
+						},
+						{
+							"key": "flightNumber",
+							"value": "227"
+						},
+						{
+							"key": "scheduledFlightDate",
+							"value": "20Jul2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[js-admin] commitJS - genFlightComment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"flight\": {\n    \"operationCarrier\": \"CX\",\n    \"flightNumber\": \"520\",\n    \"origin\": \"HKG\",\n    \"destination\": \"NRT\",\n    \"scheduledFlightDate\": \"2022-10-22\"\n  },\n  \"key\": \"D24h\"\n}"
+				},
+				"url": "{{js-admin}}/flight-comment"
+			},
+			"response": []
+		},
+		{
+			"name": "[soap-ws] BookingManagement_v2/PNRListPassengersByFlight",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"  xmlns:tns=\"www.cathaypacific.com/services/BookingManagement/v2\" xmlns:booking=\"http://www.cathaypacific.com/data/bookings/v2\" xmlns:header_v1=\"http://www.cathaypacific.com/infra/fabricxheader/v1\" xmlns:header_v2=\"http://www.cathaypacific.com/infra/fabricxheader/v2\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" xmlns:sp=\"http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702\">\r\n    <soap:Header>\r\n        <header_v2:FabriCXHeader>\r\n            <header_v2:applicationName>JSMS</header_v2:applicationName>\r\n            <header_v2:correlationId>JSMS-20221026101232526-kbwUwFQocETzvmwvoPLywkfp</header_v2:correlationId>\r\n            <header_v2:Session>\r\n                <header_v2:SessionFlag>CLOSE</header_v2:SessionFlag>\r\n            </header_v2:Session>\r\n        </header_v2:FabriCXHeader>\r\n        <wsse:Security xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">\r\n            <wsse:UsernameToken xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" wsu:Id=\"SecurityToken-2022-10-26T02:12:32Z\">\r\n                <wsse:Username>{{jsms-soap-user}}</wsse:Username>\r\n                <wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\">{{jsms-soap-password}}</wsse:Password>\r\n            </wsse:UsernameToken>\r\n        </wsse:Security>\r\n    </soap:Header>\r\n    <soap:Body>\r\n        <booking:PNRListPassengersByFlightRQ xmlns:booking=\"http://www.cathaypacific.com/data/bookings/v2\" xmlns=\"http://www.cathaypacific.com/data/bookings/v2\">\r\n            <booking:flightDateQuery>\r\n                <booking:flightIdentification>\r\n                    <pnrcmn:carrierDetails xmlns:pnrcmn=\"http://www.cathaypacific.com/data/bookings/v2\">\r\n                        <pnrcmn:marketingCarrier>CX</pnrcmn:marketingCarrier>\r\n                    </pnrcmn:carrierDetails>\r\n                    <pnrcmn:flightDetails xmlns:pnrcmn=\"http://www.cathaypacific.com/data/bookings/v2\">\r\n                        <pnrcmn:flightNumber>529</pnrcmn:flightNumber>\r\n                    </pnrcmn:flightDetails>\r\n                    <pnrcmn:boardPoint xmlns:pnrcmn=\"http://www.cathaypacific.com/data/bookings/v2\">HKG</pnrcmn:boardPoint>\r\n                </booking:flightIdentification>\r\n                <pnrcmn:dateIdentification xmlns:pnrcmn=\"http://www.cathaypacific.com/data/bookings/v2\">\r\n                    <pnrcmn:businessSemantic>FDD</pnrcmn:businessSemantic>\r\n                    <pnrcmn:dateTime>\r\n                        <pnrcmn:year>2022</pnrcmn:year>\r\n                        <pnrcmn:month>10</pnrcmn:month>\r\n                        <pnrcmn:day>22</pnrcmn:day>\r\n                    </pnrcmn:dateTime>\r\n                </pnrcmn:dateIdentification>\r\n                <pnrcmn:outputSelectionOption xmlns:pnrcmn=\"http://www.cathaypacific.com/data/bookings/v2\">\r\n                    <pnrcmn:outputType>\r\n                        <pnrcmn:selectionDetails>\r\n                            <pnrcmn:option>IMG</pnrcmn:option>\r\n                        </pnrcmn:selectionDetails>\r\n                    </pnrcmn:outputType>\r\n                    <pnrcmn:elementType>\r\n                        <pnrcmn:segmentName>SK</pnrcmn:segmentName>\r\n                    </pnrcmn:elementType>\r\n                    <pnrcmn:elementType>\r\n                        <pnrcmn:segmentName>OSI</pnrcmn:segmentName>\r\n                    </pnrcmn:elementType>\r\n                </pnrcmn:outputSelectionOption>\r\n                <pnrcmn:searchCriteria xmlns:pnrcmn=\"http://www.cathaypacific.com/data/bookings/v2\">\r\n                    <pnrcmn:primarySearchCriterion>\r\n                        <pnrcmn:selectionDetails>\r\n                            <pnrcmn:option>KWD</pnrcmn:option>\r\n                        </pnrcmn:selectionDetails>\r\n                    </pnrcmn:primarySearchCriterion>\r\n                    <pnrcmn:negativeMode>\r\n                        <pnrcmn:booleanExpression>\r\n                            <pnrcmn:codeOperator>NOP</pnrcmn:codeOperator>\r\n                        </pnrcmn:booleanExpression>\r\n                    </pnrcmn:negativeMode>\r\n                    <pnrcmn:associationMode>\r\n                        <pnrcmn:booleanExpression>\r\n                            <pnrcmn:codeOperator>OR</pnrcmn:codeOperator>\r\n                        </pnrcmn:booleanExpression>\r\n                    </pnrcmn:associationMode>\r\n                    <pnrcmn:secondarySearchCriteria>\r\n                        <pnrcmn:triggerMarker></pnrcmn:triggerMarker>\r\n                        <pnrcmn:ssrOsiSkValue>\r\n                            <pnrcmn:specialRequirementsInfo>\r\n                                <pnrcmn:ssrCode>STFS</pnrcmn:ssrCode>\r\n                                <pnrcmn:serviceType>SK</pnrcmn:serviceType>\r\n                            </pnrcmn:specialRequirementsInfo>\r\n                        </pnrcmn:ssrOsiSkValue>\r\n                    </pnrcmn:secondarySearchCriteria>\r\n                </pnrcmn:searchCriteria>\r\n            </booking:flightDateQuery>\r\n        </booking:PNRListPassengersByFlightRQ>\r\n    </soap:Body>\r\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": "{{common-kong}}/BookingManagement_v2/"
+			},
+			"response": []
+		},
+		{
+			"name": "[soap-ws] CheckInManagement_v2/searchPNR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:checkin=\"http://www.cathaypacific.com/data/checkin/v2\" xmlns:header=\"http://www.cathaypacific.com/infra/fabricxheader/v2\" xmlns:tns=\"www.cathaypacific.com/services/CheckInManagement/v2\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n    <soap:Header>\r\n        <header:FabriCXHeader>\r\n            <header:applicationName>JSMS</header:applicationName>\r\n            <header:correlationId>JSMS-20221026072515670-gIhAqsdgkjznuCPdrZBVmGkg</header:correlationId>\r\n            <header:Session>\r\n                <header:SessionFlag>CLOSE</header:SessionFlag>\r\n            </header:Session>\r\n        </header:FabriCXHeader>\r\n        <wsse:Security xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">\r\n            <wsse:UsernameToken wsu:Id=\"SecurityToken-2022-10-25T23:25:15Z\">\r\n                <wsse:Username>{{jsms-soap-user}}</wsse:Username>\r\n                <wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\">{{jsms-soap-password}}</wsse:Password>\r\n            </wsse:UsernameToken>\r\n        </wsse:Security>\r\n    </soap:Header>\r\n    <soap:Body>\r\n        <checkin:SearchPNRRQ xmlns=\"http://www.cathaypacific.com/data/checkin/v2\">\r\n            <checkin:AirlineCode>CX</checkin:AirlineCode>\r\n            <checkin:FlightData>\r\n                <checkin:FlightNumber>520</checkin:FlightNumber>\r\n                <checkin:Departure>\r\n                    <checkin:AirportCode>HKG</checkin:AirportCode>\r\n                </checkin:Departure>\r\n                <checkin:Arrival>\r\n                    <checkin:AirportCode>NRT</checkin:AirportCode>\r\n                </checkin:Arrival>\r\n            </checkin:FlightData>\r\n            <checkin:TravelDates>\r\n                <checkin:StartDate>2022-10-22</checkin:StartDate>\r\n            </checkin:TravelDates>\r\n            <checkin:FilterOption>\r\n                <checkin:OrFilter>\r\n                    <checkin:AndFilter>\r\n                        <checkin:AttributeType>STF</checkin:AttributeType>\r\n                        <checkin:AttributeValue>SB</checkin:AttributeValue>\r\n                    </checkin:AndFilter>\r\n                </checkin:OrFilter>\r\n                <checkin:OrFilter>\r\n                    <checkin:AndFilter>\r\n                        <checkin:AttributeType>STF</checkin:AttributeType>\r\n                        <checkin:AttributeValue>BK</checkin:AttributeValue>\r\n                    </checkin:AndFilter>\r\n                </checkin:OrFilter>\r\n            </checkin:FilterOption>\r\n        </checkin:SearchPNRRQ>\r\n    </soap:Body>\r\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": "{{common-kong}}/CheckInManagement_v2/"
+			},
+			"response": []
+		},
+		{
+			"name": "[soap-ws] FlightManagement_v1/createFlightComment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"  xmlns:tns=\"www.cathaypacific.com/services/FlightManagement/v1\" xmlns:flight=\"http://www.cathaypacific.com/data/flightmanagement/v1\" xmlns:header=\"http://www.cathaypacific.com/infra/fabricxheader/v2\">\r\n    <soap:Header>\r\n        <header:FabriCXHeader>\r\n            <header:applicationName>JSMS</header:applicationName>\r\n            <header:correlationId>JSMS-20221026110058297-HEbLMtFTYgmAqcPfRcDJaIIj</header:correlationId>\r\n            <header:Session>\r\n                <header:SessionFlag>CLOSE</header:SessionFlag>\r\n            </header:Session>\r\n        </header:FabriCXHeader>\r\n        <wsse:Security xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">\r\n            <wsse:UsernameToken xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" wsu:Id=\"SecurityToken-2022-10-26T03:00:58Z\">\r\n                <wsse:Username>{{jsms-soap-user}}</wsse:Username>\r\n                <wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\">{{jsms-soap-password}}</wsse:Password>\r\n            </wsse:UsernameToken>\r\n        </wsse:Security>\r\n    </soap:Header>\r\n    <soap:Body>\r\n        <flight:CreateFlightCommentRQ xmlns:flight=\"http://www.cathaypacific.com/data/flightmanagement/v1\" xmlns=\"http://www.cathaypacific.com/data/flightmanagement/v1\">\r\n            <flight:legDetails>\r\n                <flight:carrierDetails>\r\n                    <flight:marketingCarrier>CX</flight:marketingCarrier>\r\n                </flight:carrierDetails>\r\n                <flight:flightDetails>\r\n                    <flight:flightNumber>520</flight:flightNumber>\r\n                </flight:flightDetails>\r\n                <flight:departureDate>20221022</flight:departureDate>\r\n                <flight:boardPoint>HKG</flight:boardPoint>\r\n            </flight:legDetails>\r\n            <flight:flightRelatedComments>\r\n                <flight:commentText>\r\n                    <flight:freeTextDetails>\r\n                        <flight:textSubjectQualifier>3</flight:textSubjectQualifier>\r\n                        <flight:source>M</flight:source>\r\n                        <flight:encoding>ZZZ</flight:encoding>\r\n                    </flight:freeTextDetails>\r\n                    <flight:freeText>testing yo?</flight:freeText>\r\n                </flight:commentText>\r\n                <flight:commentCategory>\r\n                    <flight:statusDetails>\r\n                        <flight:indicator>FCC</flight:indicator>\r\n                        <flight:action>CI</flight:action>\r\n                    </flight:statusDetails>\r\n                </flight:commentCategory>\r\n            </flight:flightRelatedComments>\r\n        </flight:CreateFlightCommentRQ>\r\n    </soap:Body>\r\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": "{{common-kong}}/FlightManagement_v1/"
+			},
+			"response": []
+		},
+		{
+			"name": "[soap-ws] EODSRosterInformation_v1/displayRosterAndFlight",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"  xmlns:tns=\"www.cathaypacific.com/services/EODSRosterInformation/v1\" xmlns:roster=\"http://www.cathaypacific.com/data/rosters/v1\" xmlns:header=\"http://www.cathaypacific.com/infra/fabricxheader/v2\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" xmlns:sp=\"http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702\">\r\n    <soap:Header>\r\n        <header:FabriCXHeader>\r\n            <header:applicationName>JSMS</header:applicationName>\r\n            <header:correlationId>JSMS-20221026072500898-szCyRTayZaGqlwTbPZpvjtXc</header:correlationId>\r\n        </header:FabriCXHeader>\r\n        <wsse:Security xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">\r\n            <wsse:UsernameToken xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" wsu:Id=\"SecurityToken-2022-10-25T23:25:00Z\">\r\n                <wsse:Username>{{jsms-soap-user}}</wsse:Username>\r\n                <wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\">{{jsms-soap-password}}</wsse:Password>\r\n            </wsse:UsernameToken>\r\n        </wsse:Security>\r\n    </soap:Header>\r\n    <soap:Body>\r\n        <roster:RosterAndFlightDisplayRQ xmlns:roster=\"http://www.cathaypacific.com/data/rosters/v1\" xmlns=\"http://www.cathaypacific.com/data/rosters/v1\">\r\n            <roster:SearchByCaptain>\r\n                <roster:GalacxyId>CRWVCL</roster:GalacxyId>\r\n                <roster:ScheduleDepartStartDateUTC>2022-09-08</roster:ScheduleDepartStartDateUTC>\r\n                <roster:ScheduleDepartEndDateUTC>2022-12-13</roster:ScheduleDepartEndDateUTC>\r\n            </roster:SearchByCaptain>\r\n        </roster:RosterAndFlightDisplayRQ>\r\n    </soap:Body>\r\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": "{{common-kong}}/EODSRosterInformation_v1/"
+			},
+			"response": []
+		},
+		{
+			"name": "[soap-ws] EODSRosterInformation_v1/getQualification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:tns=\"www.cathaypacific.com/services/EODSRosterInformation/v1\" xmlns:roster=\"http://www.cathaypacific.com/data/rosters/v1\" xmlns:header=\"http://www.cathaypacific.com/infra/fabricxheader/v2\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" xmlns:sp=\"http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702\">\r\n    <soap:Header>\r\n        <header:FabriCXHeader>\r\n            <header:applicationName>JSMS</header:applicationName>\r\n            <header:correlationId>JSMS-20221026105151255-NDnDGlIUwHRFaXkyLhoTNNKI</header:correlationId>\r\n        </header:FabriCXHeader>\r\n        <wsse:Security xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">\r\n            <wsse:UsernameToken xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" wsu:Id=\"SecurityToken-2022-10-26T02:51:51Z\">\r\n                <wsse:Username>{{jsms-soap-user}}</wsse:Username>\r\n                <wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\">{{jsms-soap-password}}</wsse:Password>\r\n            </wsse:UsernameToken>\r\n        </wsse:Security>\r\n    </soap:Header>\r\n    <soap:Body>\r\n        <roster:RosterQualificationRQ xmlns:roster=\"http://www.cathaypacific.com/data/rosters/v1\" xmlns=\"http://www.cathaypacific.com/data/rosters/v1\">\r\n            <roster:getQualification>\r\n                <roster:GalacxyId>CRWADO</roster:GalacxyId>\r\n            </roster:getQualification>\r\n        </roster:RosterQualificationRQ>\r\n    </soap:Body>\r\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": "{{common-kong}}/EODSRosterInformation_v1/"
+			},
+			"response": []
+		},
+		{
+			"name": "[soap-ws] EODSRosterInformation_v1/displayFlightCommander",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cacne",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "https://api-common-internal.cp1.cathaypacific.com",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "1f7e979d-e873-4717-667-7630068457c.18069c43-2c9a-4e27-90f-a35044c",
+						"type": "text"
+					},
+					{
+						"key": "content-length",
+						"value": "2024",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"  xmlns:tns=\"www.cathaypacific.com/services/EODSRosterInformation/v1\" xmlns:roster=\"http://www.cathaypacific.com/data/rosters/v1\" xmlns:header=\"http://www.cathaypacific.com/infra/fabricxheader/v2\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" xmlns:sp=\"http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702\">\r\n    <soap:Header>\r\n        <header:FabriCXHeader>\r\n            <header:applicationName>JSMS</header:applicationName>\r\n            <header:correlationId>JSMS-20230106140648466-ndAowTYAEiHPnIeIZmrAOvss</header:correlationId>\r\n        </header:FabriCXHeader>\r\n        <wsse:Security xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\">\r\n            <wsse:UsernameToken xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\" wsu:Id=\"SecurityToken-2022-10-26T03:26:31Z\">\r\n                <wsse:Username>{{jsms-soap-user}}</wsse:Username>\r\n                <wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\">{{jsms-soap-password}}</wsse:Password>\r\n            </wsse:UsernameToken>\r\n        </wsse:Security>\r\n    </soap:Header>\r\n    <soap:Body>\r\n        <roster:FlightCommanderDisplayRQ xmlns:roster=\"http://www.cathaypacific.com/data/rosters/v1\" xmlns=\"http://www.cathaypacific.com/data/rosters/v1\">\r\n            <roster:CarrierCode>CX</roster:CarrierCode>\r\n            <roster:FlightNumber>520</roster:FlightNumber>\r\n            <roster:InitialDateOfOrigin>2022-10-22</roster:InitialDateOfOrigin>\r\n            <roster:Origin>HKG</roster:Origin>\r\n            <roster:Destination></roster:Destination>\r\n        </roster:FlightCommanderDisplayRQ>\r\n    </soap:Body>\r\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": "{{common-kong}}/EODSRosterInformation_v1/"
+			},
+			"response": []
+		}
+	]
+}
